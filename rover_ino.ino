@@ -1,12 +1,18 @@
+#include <Wire.h>
+
+#include <Adafruit_Sensor.h>
+#include <Adafruit_LSM303.h>
+#include <Adafruit_LSM303_U.h>
+#include <Adafruit_L3GD20.h>
+#include <Adafruit_L3GD20_U.h>
+#include <Adafruit_BMP085_U.h>
+#include <Adafruit_10DOF.h>
+
 uint8_t LEFT_MOTOR_ENABLE_PIN = 5;
 uint8_t LEFT_MOTOR_DRIVE_PIN = 6;
 uint8_t RIGHT_MOTOR_ENABLE_PIN = 3;
 uint8_t RIGHT_MOTOR_DRIVE_PIN = 4;
 
-uint8_t FORWARD = HIGH;
-uint8_t ENABLE = HIGH;
-uint8_t REVERSE = LOW;
-uint8_t DISABLE = LOW;
 
 void rotate_forward(uint8_t drive_pin, uint8_t enable_pin) {
   digitalWrite(drive_pin, HIGH);
@@ -19,6 +25,7 @@ void rotate_reverse(uint8_t drive_pin, uint8_t enable_pin) {
 }
 
 void rotate_stop(uint8_t drive_pin, uint8_t enable_pin) {
+
   digitalWrite(drive_pin, LOW);
   digitalWrite(enable_pin, LOW);
 }
